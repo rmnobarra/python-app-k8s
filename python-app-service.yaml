@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-sample-app
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: python-sample-app

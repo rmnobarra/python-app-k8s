@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-python
+spec:
+  rules:
+  - host: python-app.local
+    http:
+      paths:
+      - backend:
+          serviceName: python-sample-app
+          servicePort: 80

@@ -1,0 +1,30 @@
+apiVersion: apps/v1b
+kind: Deployment
+metadata:
+  name: python-sample-app
+  labels:
+    name: python-sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: python-sample-app
+  template:
+    metadata:
+      name: python-sample-app
+      labels:
+        name: python-sample-app
+    spec:
+      containers:
+        - name: python-sample-app
+          image: rmnobarra/my-python-sample-app:1.0
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              memory: 256Mi
+            limits:
+              memory: 512Mi
+          env:
+            - name: DEBUG_MODE
+              value: "1"
