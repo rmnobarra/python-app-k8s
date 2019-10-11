@@ -13,6 +13,9 @@ metadata:
   labels:
     app: traefik-ingress-lb
 spec:
+  selector:
+    matchLabels:
+      name: traefik-ingress-controller
   template:
     metadata:
       labels:
