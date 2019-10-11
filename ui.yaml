@@ -19,7 +19,7 @@ metadata:
   namespace: kube-system
 spec:
   rules:
-  - host: traefik8s.sinqia.com.br
+  - host: traefik.local
     http:
       paths:
       - path: /
