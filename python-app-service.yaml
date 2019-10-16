@@ -3,9 +3,12 @@ kind: Service
 metadata:
   name: python-sample-app
 spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 80
+  type: ClusterIP
   selector:
     app: python-sample-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+    name: python-sample-app
+
