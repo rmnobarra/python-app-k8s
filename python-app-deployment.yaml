@@ -18,6 +18,7 @@ spec:
       containers:
         - name: python-sample-app
           image: rmnobarra/my-python-sample-app:1.0
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           resources:
