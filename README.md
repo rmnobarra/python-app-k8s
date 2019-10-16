@@ -29,6 +29,7 @@ kubectl apply -f ui.yaml
 python-app-ingress.yaml
 ```
 
-ref:
+#### <em>ref:
 https://docs.traefik.io/user-guide/kubernetes/
-https://github.com/containous/traefik/tree/v1.7/examples/k8s
+
+https://github.com/containous/traefik/tree/v1.7/examples/k8s </em>
