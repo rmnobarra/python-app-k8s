@@ -1,4 +1,4 @@
-#Configura app python + traefik ingress versão como daemon set.
+#Configura app python + traefik ingress + traefik ui.
 
 1. Deployment
 ```bash
