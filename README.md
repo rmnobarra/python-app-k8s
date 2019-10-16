@@ -26,7 +26,7 @@ kubectl apply -f ui.yaml
 ```
 ### 6. Ingress app python
 ```bash
-python-app-ingress.yaml
+kubectl apply -f python-app-ingress.yaml
 ```
 
 #### <em>ref:
