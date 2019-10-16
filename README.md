@@ -1,51 +1,33 @@
-#Configura traefik ingress versão 1.7 como daemon set.
+#Configura app python + traefik ingress versão como daemon set.
 
-1. RBAC
+1. Deployment
+```bash
+kubectl apply -f python-app-deployment.yaml
+``` 
+2. Service
+```bash
+kubectl apply -f python-app-service.yaml
+```
+3. RBAC
 ```bash
 kubectl apply -f traefik-rbac.yaml
 ```
-1. Daemonset
+4. Daemonset
 ```bash
 kubectl apply -f traefik-ds.yaml
 ```
-2b. (alternativo) - Deployment
+4b. (alternativo) - Deployment
 ```bash
 kubectl apply -f traefik-deployment.yaml
 ```
-1. Traefik UI
-2. ```bash
+5. Traefik UI
+```bash
 kubectl apply -f ui.yaml
 ```
-#Extras
-
-Configurar autenticação para o dashboard do traefik
-
-1. Gerar o hash com usuário e senha:
-htpasswd -c ./auth myusername
-
-2. Criar secret a partir do arquivo gerado no passo 1
-kubectl create secret generic traefik-dash-secret --from-file auth
-
-Testes:
-
-Deploy 3 nginx
+6. Ingress app python
 ```bash
-kubectl apply -f python-app-deployment
+python-app-ingress.yaml
 ```
-expose via clusterip os deployments
-```bash
-kubectl expose deploy nginx-deploy-main --port 80
-kubectl expose deploy nginx-deploy-green --port 80
-kubectl expose deploy nginx-deploy-blue --port 80
-```
-
-criar ingress resources para os deployments
-```bash
-kubectl apply -f ingress-resource-2.yaml
-```
-
-OBS: Este ingress resources criará rotas para nginx.example.com > nginx-deploy-main, blue.nginx.example.com > nginx-deploy-blue e green.nginx.example.com > nginx-deploy-green, logo adicione entradas no arquivo hosts de sua estação de acordo com os endereços acima + ip's dos workers e ou balances (de acordo com o ambiente)
-
 
 ref:
 https://docs.traefik.io/user-guide/kubernetes/
