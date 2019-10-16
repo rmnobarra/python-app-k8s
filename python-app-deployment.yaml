@@ -3,17 +3,16 @@ kind: Deployment
 metadata:
   name: python-sample-app
   labels:
-    name: python-sample-app
+    app: python-sample-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      name: python-sample-app
+      app: python-sample-app
   template:
     metadata:
-      name: python-sample-app
       labels:
-        name: python-sample-app
+        app: python-sample-app
     spec:
       containers:
         - name: python-sample-app
